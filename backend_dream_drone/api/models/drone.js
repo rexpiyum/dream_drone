@@ -1,5 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var random = require('mongoose-simple-random');
+
 
 
 var droneSchema = new Schema({
@@ -25,5 +27,7 @@ var droneSchema = new Schema({
   },
   
 });
+
+droneSchema.plugin(random);
 
 module.exports = mongoose.model('Drone', droneSchema);

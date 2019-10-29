@@ -3,7 +3,6 @@ module.exports = function(app) {
 
   // user Routes
   app.route('/users')
-  .get(user.read_a_user)
     .get(user.list_all_users)
     .post(user.create_a_user);
 

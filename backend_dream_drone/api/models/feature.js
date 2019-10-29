@@ -1,8 +1,10 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var random = require('mongoose-simple-random');
 
 
-var projectSchema = new Schema({
+
+var featureSchema = new Schema({
   title: {
     type: String,
     required: 'Please enter title'
@@ -22,4 +24,6 @@ var projectSchema = new Schema({
   }
 });
 
-module.exports = mongoose.model('Feature', projectSchema);
+featureSchema.plugin(random);
+
+module.exports = mongoose.model('Feature', featureSchema);

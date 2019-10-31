@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
   Feature = mongoose.model('Feature');
 
 exports.list_all_features = function(req, res) {
-  Feature.find({}, function(err, feature) {
+  Feature.findRandom({}, {}, {limit: 99}, function(err, feature) {
     if (err)
       res.send(err);
     res.json(feature);

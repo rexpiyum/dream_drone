@@ -7,7 +7,7 @@ exports.list_all_drones = function(req, res) {
       res.send(err);
     res.json(drones);
     console.log(drones);
-  }).sort({createdDate:-1}).populate('mainStory').populate('createdBy').populate('features');
+  }).sort({createdDate:1}).populate('mainStory').populate('createdBy').populate('features');
 };
 
 exports.create_a_drone = function(req, res) {

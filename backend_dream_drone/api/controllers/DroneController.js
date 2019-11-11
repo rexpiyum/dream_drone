@@ -7,7 +7,7 @@ exports.list_all_drones = function(req, res) {
       res.send(err);
     res.json(drones);
     console.log(drones);
-  }).sort({createdDate:1}).populate('mainStory').populate('createdBy').populate('features');
+  }).sort({createdDate:1}).populate('mainStory').populate('subStories').populate('createdBy').populate('features');
 };
 
 exports.create_a_drone = function(req, res) {
@@ -25,7 +25,7 @@ exports.read_a_drone = function(req, res) {
     if (err)
       res.send(err);
     res.json(drone);
-  }).populate('mainStory').populate('createdBy').populate('features');
+  }).populate('mainStory').populate('subStories').populate('createdBy').populate('features');
 };
 
 exports.update_a_drone = function(req, res) {

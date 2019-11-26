@@ -1,5 +1,6 @@
 var mongoose = require('mongoose'),
   Drone = mongoose.model('Drone');
+  
 
 exports.list_all_drones = function(req, res) {
   Drone.find({}, function(err, drones) {
@@ -8,6 +9,17 @@ exports.list_all_drones = function(req, res) {
     res.json(drones);
     console.log(drones);
   }).sort({createdDate:1}).populate('mainStory').populate('subStories').populate('createdBy').populate('features');
+};
+
+
+exports.get_random_list_of_drones = function(req, res) {
+  Drone.findRandom({}, {}, {limit: req.params.count}, function(err, drone) {
+    if (err) {
+      console(err);
+      res.json(err);
+    }
+    res.json(drone);
+  });
 };
 
 exports.create_a_drone = function(req, res) {

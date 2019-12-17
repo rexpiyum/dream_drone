@@ -17,6 +17,11 @@ var featureSchema = new Schema({
     type: String,
   },
   createdBy: {type: mongoose.Schema.Types.ObjectId, ref: 'User'},
+
+  isFlagged: {
+    type: Boolean,
+    default: false
+  },
   
   createdDate: {
     type: Date,

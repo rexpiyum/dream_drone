@@ -13,7 +13,7 @@ exports.list_all_drones = function(req, res) {
 
 
 exports.get_random_list_of_drones = function(req, res) {
-  Drone.findRandom({}, {}, {limit: req.params.count}, function(err, drone) {
+  Drone.findRandom({isFlagged:{$in:[false]}}, {}, {limit: req.params.count}, function(err, drone) {
     if (err) {
       console(err);
       res.json(err);
